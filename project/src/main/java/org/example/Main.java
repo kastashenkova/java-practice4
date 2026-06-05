@@ -2,13 +2,15 @@ package org.example;
 
 import java.net.Socket;
 import org.example.processing.SharedQueue;
+import org.example.processing.warehouse.WarehouseService;
+import org.example.util.LogInvoker;
 import org.example.util.RetryInvoker;
 import org.example.validator.AnnotationValidator;
 import org.example.validator.ConnectionValidator;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Throwable {
 
         String[] params = {"rice", "buckwheat"};
         AnnotationValidator.validate(
@@ -18,6 +20,9 @@ public class Main {
 
         GeneratedSocketRouter metricsRouter = new GeneratedSocketRouter();
         ConnectionValidator.validate(metricsRouter);
+
+        WarehouseService service = new WarehouseService();
+        LogInvoker.invoke(service, "addProducts", "apple", 50);
 
         try {
             SharedQueue<byte[]> queue = new SharedQueue<>();
