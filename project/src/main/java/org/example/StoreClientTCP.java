@@ -11,7 +11,7 @@ import org.example.processing.receiver.ReceiverImpl;
 
 public class StoreClientTCP {
     private static final String HOST = "localhost";
-    private static final int PORT = 8099;
+    private static final int PORT = 8077;
 
     public static void main(String[] args) {
 

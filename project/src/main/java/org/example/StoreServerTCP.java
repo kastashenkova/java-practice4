@@ -6,7 +6,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class StoreServerTCP {
-    private static final int PORT = 8099;
+    private static final int PORT = 8077;
 
     public static void main(String[] args) {
 
